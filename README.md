@@ -1,1 +1,5 @@
-# kubectl-assignment
+- kubectl assignment for deploying images from ecr to k8 cluster and running them. 
+- deploying pod manifest for mysql, deploying lables in replica manifest and finally deploying deployment manifest for mysql.
+- deploying two web app applications to run in the cluster.
+- creating a service of clusterip and nodeip for both web app
+- creating two versions of the web app and confirm its accessible via the browers and curl command
