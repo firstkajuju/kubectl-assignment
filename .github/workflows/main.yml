@@ -43,7 +43,7 @@ jobs:
         ECR_REPOSITORY: assigment-dev-app
 
 
-        IMAGE_TAG: v1.0
+        IMAGE_TAG: v1.2
       run: |
         cd dockerfile_build/
         ls -ltra
