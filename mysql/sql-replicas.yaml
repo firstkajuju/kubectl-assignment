@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mysql-replicaset
+  labels:
+    app: mysql
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+        app.kubernetes.io/name: mysql
+        app.kubernetes.io/component: backend
+    spec:
+      imagePullSecrets:
+        - name: assigment2
+      containers:
+        - name: mysql
+          image: 469755524120.dkr.ecr.us-east-1.amazonaws.com/assigment-dev-mysql:v1.0
+          imagePullPolicy: Always
+          env:
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_ROOT_PASSWORD
+              value: mypassword
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_DATABASE
+              value: employees
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 3306
+
