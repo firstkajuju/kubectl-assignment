@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myemployees
+  labels:
+    app: employees
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employees
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: employees
+        version: v1
+    spec:
+      containers:
+      - name: myemployees
+        image: 469755524120.dkr.ecr.us-east-1.amazonaws.com/assigment-dev-app:v1.2
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+          - name: DBPWD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-root-password
+                key: MYSQL_ROOT_PASSWORD
+          - name: DBPORT
+            value: "3306"
+          - name: DBHOST
+            value: "mysql.test.svc.cluster.local"
+          - name: DBUSER
+            value: "root"
+        ports:
+        - containerPort: 8080
+
