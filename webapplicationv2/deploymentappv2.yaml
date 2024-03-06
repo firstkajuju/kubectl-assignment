@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myemployees
+  name: employeesv2
   labels:
     app: employees
-    version: v1
+    version: v2
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: employees
-      version: v1
+      version: v2
   template:
     metadata:
       labels:
         app: employees
-        version: v1
+        version: v2
     spec:
       containers:
       - name: myemployees
-        image: 469755524120.dkr.ecr.us-east-1.amazonaws.com/assigment-dev-app:v1.2
+        image: 469755524120.dkr.ecr.us-east-1.amazonaws.com/assigment-dev-app:v1.3
         imagePullPolicy: Always
         resources:
           requests:
@@ -40,4 +40,3 @@ spec:
         ports:
         - containerPort: 8080
 
-a
