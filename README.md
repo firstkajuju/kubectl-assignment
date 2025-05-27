@@ -1,5 +1,4 @@
-- kubectl assignment for deploying images from ecr to k8 cluster and running them. 
-- deploying pod manifest for mysql, deploying lables in replica manifest and finally deploying deployment manifest for mysql.
-- deploying two web app applications to run in the cluster.
-- creating a service of clusterip and nodeip for both web app
-- creating two versions of the web app and confirm its accessible via the browers and curl command
+• Designed and deployed a containerized app using Kubernetes, managing pods, deployments, and services.  
+• Used Docker for packaging, and GitHub Actions for CI/CD to automate builds, tests, and YAML validation with kubeval.  
+• Configured scalable Kubernetes clusters and implemented declarative infrastructure as code.  
+• Demonstrated strong GitOps principles and modern DevSecOps practices.
